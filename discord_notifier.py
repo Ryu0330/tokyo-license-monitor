@@ -1,0 +1,29 @@
+import urllib.request
+import json
+import os
+
+def post_discord(slots):
+
+  WEBHOOK_URL = os.environ["DISCORD_WEBHOOK_URL"]
+
+  message = (
+    "[テスト]:本免学科試験(江東試験場)に空きが見つかりました。\n\n"
+    + "\n".join(
+        f"{slot['date']} {slot['time']}"
+        for slot in slots
+    )
+  )
+  headers = {
+      "Content-Type": "application/json",
+      "User-Agent": "DiscordBot (private use) Python-urllib/3.10",
+  }
+  data = {"content": message}
+  request = urllib.request.Request(
+      WEBHOOK_URL,
+      data=json.dumps(data).encode(),
+      headers=headers,
+      method="POST"
+  )
+
+  with urllib.request.urlopen(request) as res:
+      assert res.getcode() == 204
