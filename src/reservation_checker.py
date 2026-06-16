@@ -20,7 +20,7 @@ def get_available_slots():
         data = json.loads(response.read().decode("unicode-escape"))
 
     for slot in data['body']:
-      if int(formatted_date) - int(slot["date"]) > 0: continue
+      if int(formatted_date) - int(slot["date"]) >= 0: continue
       if int(slot["capacity"])-int(slot["reservation"]) > 0:
         available_slots.append({"place":PLACE_CODES[placecode], "date": slot["date"], "time": slot["starttime"]})
 
