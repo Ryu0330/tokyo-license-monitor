@@ -31,5 +31,5 @@ jobs:
         function-name: tokyo-license-monitor
         code-artifacts-dir: src
         handler: lambda_function.lambda_handler
-        runtime: Python3.14
+        runtime: python3.14
         # Add any additional inputs this action supports
