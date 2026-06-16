@@ -28,7 +28,7 @@ jobs:
     - name: Deploy Lambda Function
       uses: aws-actions/aws-lambda-deploy@v1.1.0
       with:
-        function-name: my-function-name
+        function-name: tokyo-license-monitor
         code-artifacts-dir: src
         handler: lambda_function.lambda_handler
         runtime: Python3.14
