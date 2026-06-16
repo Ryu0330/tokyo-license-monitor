@@ -9,7 +9,7 @@ def post_discord(slots):
   message = (
     "[テスト]:本免学科試験(江東試験場)に空きが見つかりました。\n\n"
     + "\n".join(
-        f"{slot['date']} {slot['time']}"
+        f"{slot['date'][4:6]}/{slot['date'][6:8]} {slot['time'][:2]}/{slot['time'][2:]}"
         for slot in slots
     )
   )
