@@ -7,9 +7,9 @@ def post_discord(slots):
   WEBHOOK_URL = os.environ["DISCORD_WEBHOOK_URL"]
 
   message = (
-    "[テスト]:本免学科試験に空きが見つかりました。\n\n"
+    "[テスト]:本免学科試験に空きが見つかりました。\n\n場所 |  日付  |  時間\n"
     + "\n".join(
-        f"{slot['place']} {slot['date'][4:6]}/{slot['date'][6:8]} {slot['time'][:2]}:{slot['time'][2:]}"
+        f"{slot['place']} | {slot['date'][4:6]}/{slot['date'][6:8]} | {slot['time'][:2]}:{slot['time'][2:]}"
         for slot in slots
     )
   )
